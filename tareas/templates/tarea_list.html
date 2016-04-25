@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Lista de tareas
+{% endblock %}
+
+{% block body %}
+    <h2>Lista de Tareas</h2>
+    <a href="{% url 'tarea-add' %}">Nueva Tarea</a>
+    <ul>
+        {% for task in task_list %}
+            <li>
+                {{ task.description }}
+                -
+                {% if not task.is_done %}
+                    <a href="{% url 'tarea-done' tarea.id %}">Marcar como completada</a>
+                {% else %}
+                    <span>Listo!</span>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

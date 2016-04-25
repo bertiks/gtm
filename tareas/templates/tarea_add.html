@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Nueva Tarea
+{% endblock %}
+
+{% block body %}
+    <h2>Nueva Tarea</h2>
+    <form action="{% url 'tarea-add' %}" method="post">
+        {% csrf_token %}
+        <label for="descripcion">Descripcion</label>
+        <input type="text" id="descripcion" name="descripcion">
+        <input type="submit" name="submit" value="Nueva Tarea">
+    </form>
+{% endblock %}
